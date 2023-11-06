@@ -53,6 +53,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ): Container(
           child: Text("email saya "+ _currentUser!.email.toString()),
+          
         ),
     );
   }
