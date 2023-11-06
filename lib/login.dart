@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -52,7 +51,14 @@ class _LoginPageState extends State<LoginPage> {
             , child: Text('Login Google')),
           ),
         ): Container(
-          child: Text("email saya "+ _currentUser!.email.toString()),
+          child: ListTile(
+            leading: GoogleUserCircleAvatar(identity: _currentUser!),
+            title: Text(_currentUser!.displayName??''),
+            subtitle: Text(_currentUser!.email),
+            trailing: IconButton(onPressed: (){
+              _googleSignIn.disconnect();
+            }, icon: Icon(Icons.logout)),
+          )
           
         ),
     );
